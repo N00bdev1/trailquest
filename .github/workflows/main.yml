@@ -26,6 +26,21 @@ jobs:
     - name: Run Robot tests
       run: |
         robot -d output tests/
+    - name: Check Chrome and ChromeDriver Versions
+      run: |
+        echo "Checking Chrome version..."
+        if command -v google-chrome &> /dev/null; then
+          google-chrome --version
+        else
+          echo "google-chrome not found"
+        fi
+
+        echo "Checking ChromeDriver version..."
+        if command -v chromedriver &> /dev/null; then
+          chromedriver --version
+        else
+          echo "chromedriver not found"
+        fi
 
     - name: Upload Robot Reports
       uses: actions/upload-artifact@v4
