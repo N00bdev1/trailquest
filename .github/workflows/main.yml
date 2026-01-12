@@ -40,15 +40,6 @@ jobs:
       run: |
         sudo ln -sf /opt/hostedtoolcache/setup-chrome/chromium/143.0.7499.192/x64/chrome /usr/bin/google-chrome
 
-    #  Install ChromeDriver 143 (MATCHING)
-    - name: Install ChromeDriver 143
-      run: |
-        CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d. -f1)
-        wget -q https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}.0.0/linux64/chromedriver-linux64.zip
-        unzip chromedriver-linux64.zip
-        sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-        sudo chmod +x /usr/bin/chromedriver
-
     - name: Verify Versions
       run: |
         google-chrome --version
