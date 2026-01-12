@@ -41,6 +41,8 @@ jobs:
       uses: browser-actions/setup-chrome@v1
       with:
         chrome-version: 142
+    - name: Symlink chrome
+      run: sudo ln -sf /opt/hostedtoolcache/setup-chrome/chromium/142.0.7444.175/x64/chrome /usr/bin/google-chrome
     - name: Verify browser versions
       run: |
           google-chrome --version
