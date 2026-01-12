@@ -39,7 +39,13 @@ jobs:
     - name: Symlink Chrome
       run: |
         sudo ln -sf /opt/hostedtoolcache/setup-chrome/chromium/143.0.7499.192/x64/chrome /usr/bin/google-chrome
-
+    # Install ChromeDriver 143 (matching Chrome)
+    - name: Install ChromeDriver 143
+      run: |
+          wget -q https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.192/linux64/chromedriver-linux64.zip
+          unzip -q chromedriver-linux64.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+          sudo chmod +x /usr/bin/chromedriver
     - name: Verify Versions
       run: |
         google-chrome --version
