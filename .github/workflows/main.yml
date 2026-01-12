@@ -36,6 +36,9 @@ jobs:
       uses: browser-actions/setup-chrome@v1
       with:
         chrome-version: 143
+    - name: Symlink Chrome
+      run: |
+        sudo ln -sf /opt/hostedtoolcache/setup-chrome/chromium/143.0.7499.192/x64/chrome /usr/bin/google-chrome
 
     #  Install ChromeDriver 143 (MATCHING)
     - name: Install ChromeDriver 143
