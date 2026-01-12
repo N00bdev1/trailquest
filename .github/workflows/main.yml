@@ -1,18 +1,16 @@
-name: Robot TrailQuest Tests
+name: Robot Framework CI
 
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
 
 jobs:
-  robot-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Set up Python
@@ -20,49 +18,16 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install Python Dependencies
+    - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Remove conflicting drivers & chrome
-    - name: Remove existing Chrome & ChromeDriver
+    - name: Run Robot Tests
       run: |
-        sudo rm -f /usr/bin/chromedriver
-        sudo apt-get purge -y google-chrome-stable || true
+        robot -d Results Tests/
 
-    #  Install Chrome 143
-    - name: Install Chrome 143
-      uses: browser-actions/setup-chrome@v1
-      with:
-        chrome-version: 143
-    - name: Symlink Chrome
-      run: |
-        sudo ln -sf /opt/hostedtoolcache/setup-chrome/chromium/143.0.7499.192/x64/chrome /usr/bin/google-chrome
-    # Install ChromeDriver 143 (matching Chrome)
-    - name: Install ChromeDriver 143
-      run: |
-          wget -q https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.192/linux64/chromedriver-linux64.zip
-          unzip -q chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-          sudo chmod +x /usr/bin/chromedriver
-    - name: Verify Versions
-      run: |
-        google-chrome --version
-        chromedriver --version
-
-    #  Headed execution (Xvfb)
-    - name: Install Xvfb
-      run: sudo apt-get install -y xvfb
-
-    - name: Run Robot Tests (Headed)
-      run: |
-        xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-        robot -d output tests/
-
-    - name: Upload Reports
-      if: always()
+    - name: Upload Robot Reports
       uses: actions/upload-artifact@v4
       with:
-        name: robot-test-reports
-        path: output/
+        name: robot-report
+        path: Results/
