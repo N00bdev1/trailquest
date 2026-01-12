@@ -25,7 +25,7 @@ jobs:
 
     - name: Run Robot tests
       run: |
-        robot -d output Tests/
+        robot -d output tests/
 
     - name: Upload Robot Reports
       uses: actions/upload-artifact@v4
