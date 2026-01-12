@@ -1,16 +1,18 @@
-name: Robot Framework CI
+name: Robot TrailQuest Tests
 
 on:
   push:
     branches: [ main ]
   pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  test:
+  robot-tests:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout Repository
       uses: actions/checkout@v4
 
     - name: Set up Python
@@ -18,16 +20,63 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install Python Dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    # Remove preinstalled Chrome and ChromeDriver
+    - name: Remove existing Chrome & Driver
+      run: |
+        sudo rm -f /usr/bin/chromedriver
+        sudo apt-get purge -y google-chrome-stable || true
+
+    # Install Chrome 143 for testing
+    - name: Install Chrome 143
+      uses: browser-actions/setup-chrome@v1
+      with:
+        chrome-version: 143
+
+    - name: Symlink Chrome
+      run: |
+        sudo ln -sf /opt/hostedtoolcache/setup-chrome/chromium/143.0.7499.192/x64/chrome /usr/bin/google-chrome
+
+    # Install ChromeDriver 143 manually
+    - name: Install ChromeDriver 143
+      run: |
+        wget -q https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.192/linux64/chromedriver-linux64.zip
+        unzip -q chromedriver-linux64.zip
+        sudo mv chromedriver /usr/bin/chromedriver
+        sudo chmod +x /usr/bin/chromedriver
+
+    # Install OS dependencies for Chrome
+    - name: Install required libraries
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libpangocairo-1.0-0 libatk1.0-0 libcups2 libdbus-1-3 libxrandr2 libasound2
+
+    # Verify Chrome & Driver
+    - name: Verify Chrome & Driver
+      run: |
+        google-chrome --version
+        chromedriver --version
+
+    # Run Robot Framework tests (headed)
     - name: Run Robot Tests
       run: |
-        robot -d output tests/
+        xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output tests/
 
-    - name: Upload Robot Reports
+    - name: Upload Reports
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: robot-report
+        name: robot-test-reports
         path: output/
