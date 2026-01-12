@@ -24,21 +24,27 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v1
-      with:
-        chrome-version: 142
+ 
+    - name: Uninstall webdriver-manager
+      run: |
+        pip uninstall -y webdriver-manager || true
+    
     
     - name: Install Xvfb
       run: |
         sudo apt-get update
         sudo apt-get install -y xvfb
-    - name: Setup ChromeDriver
-      uses: nanasess/setup-chromedriver@v2
+    - name: Install Google Chrome
+      uses: browser-actions/setup-chrome@v1
       with:
-        chromedriver-version: 142.0.7262.0
-
+        chrome-version: 142
+    - name: Verify browser versions
+      run: |
+          google-chrome --version
+          python - <<EOF
+          from selenium import webdriver
+          print("Selenium OK")
+          EOF
     - name: Run Robot Framework Tests
       run: |
         xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output tests/
