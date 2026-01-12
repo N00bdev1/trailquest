@@ -56,9 +56,9 @@ jobs:
         google-chrome --version
         chromedriver --version
         python - <<EOF
-from selenium import webdriver
-print("Selenium OK")
-EOF
+        from selenium import webdriver
+        print("Selenium OK")
+        EOF
 
     # Install Xvfb for headed mode
     - name: Install Xvfb
