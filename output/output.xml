@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2026-01-12T08:43:29.492646" rpa="false" schemaversion="5">
+<suite id="s1" name="Quiz Test" source="C:\Users\alson\OneDrive\Desktop\trailquest\tests\quiz_test.robot">
+<test id="s1-t1" name="verify quiz page loads" line="7">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:43:29.842293" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09C0DBE0&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:43:29.841979" elapsed="0.000357"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:29.842484" elapsed="0.000149"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:29.842766" elapsed="0.000150"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:29.843040" elapsed="0.000143"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:43:29.843619" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:43:29.843324" elapsed="3.935396"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:43:33.779089" elapsed="0.032832"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:43:29.841227" elapsed="3.970893"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:43:29.840709" elapsed="3.971519"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:43:33.868458" level="INFO">Current page contains text 'More Than a Quiz'.</msg>
+<arg>More Than a Quiz</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-01-12T08:43:33.812917" elapsed="0.055665"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:43:33.869273" elapsed="2.169485"/>
+</kw>
+<doc>quiz page loads from its url</doc>
+<tag>1</tag>
+<status status="PASS" start="2026-01-12T08:43:29.839800" elapsed="6.199251"/>
+</test>
+<test id="s1-t2" name="Verify Question Displays" line="11">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:43:36.041308" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09B4A990&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:43:36.041008" elapsed="0.000337"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:36.041458" elapsed="0.000144"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:36.041709" elapsed="0.000129"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:36.041941" elapsed="0.000143"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:43:36.042449" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:43:36.042210" elapsed="3.569911"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:43:39.612418" elapsed="0.032635"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:43:36.040779" elapsed="3.604417"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:43:36.040487" elapsed="3.604792"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:43:49.915045" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-381.png"&gt;&lt;img src="selenium-screenshot-381.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:43:49.915201" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:43:39.645972" elapsed="10.271351">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:43:49.917508" elapsed="0.000040"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:43:39.645671" elapsed="10.272001">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Question 1</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:43:49.918021" elapsed="0.000036"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<var>${options}</var>
+<arg>${OPTION_LABELS}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:43:49.918360" elapsed="0.000032"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<arg>${option}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-01-12T08:43:49.919091" elapsed="0.000032"/>
+</kw>
+<var name="${option}"/>
+<status status="NOT RUN" start="2026-01-12T08:43:49.918956" elapsed="0.000212"/>
+</iter>
+<var>${option}</var>
+<value>@{options}</value>
+<status status="NOT RUN" start="2026-01-12T08:43:49.918762" elapsed="0.000455"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:43:49.919813" elapsed="2.150387"/>
+</kw>
+<doc>first question displays with all answers</doc>
+<tag>regression</tag>
+<status status="FAIL" start="2026-01-12T08:43:36.039938" elapsed="16.030900">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t3" name="Verify Answer Selection" line="20">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:43:52.075683" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09CBC190&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:43:52.075220" elapsed="0.000527"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:52.076027" elapsed="0.000312"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:52.076524" elapsed="0.000224"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:43:52.076900" elapsed="0.000180"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:43:52.077632" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:43:52.077269" elapsed="3.910458"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:43:55.987965" elapsed="0.072259"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:43:52.074816" elapsed="3.985571"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:43:52.074175" elapsed="3.986315"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:06.312296" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-382.png"&gt;&lt;img src="selenium-screenshot-382.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:44:06.312444" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:43:56.061448" elapsed="10.252136">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:06.313820" elapsed="0.000052"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:43:56.061069" elapsed="10.252946">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Choose Option" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:44:06.314479" elapsed="0.000049"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:44:06.314992" elapsed="2.155496"/>
+</kw>
+<doc>Answer can be selected</doc>
+<status status="FAIL" start="2026-01-12T08:43:52.073032" elapsed="16.397858">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t4" name="Verify Previous Button Functionality" line="25">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:44:08.473375" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09C81F30&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:44:08.473091" elapsed="0.000323"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:08.473626" elapsed="0.000246"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:08.473978" elapsed="0.000124"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:08.474214" elapsed="0.000123"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:08.474701" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:44:08.474467" elapsed="4.050762"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:44:12.525488" elapsed="0.035447"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:08.472864" elapsed="4.088215"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:08.472561" elapsed="4.088606"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:22.810615" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-383.png"&gt;&lt;img src="selenium-screenshot-383.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:44:22.810743" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:44:12.562079" elapsed="10.249813">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:22.812099" elapsed="0.000052"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:44:12.561684" elapsed="10.250599">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${progress}</var>
+<arg>${QUIZ_PROGRESS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:22.812808" elapsed="0.000053"/>
+</kw>
+<kw name="Choose Option" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:44:22.813345" elapsed="0.000073"/>
+</kw>
+<kw name="Click previous Button" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:44:22.813831" elapsed="0.000055"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${temp}</var>
+<arg>${QUIZ_PROGRESS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:22.814223" elapsed="0.000053"/>
+</kw>
+<if>
+<branch type="IF" condition="$temp==$progress">
+<kw name="Log" owner="BuiltIn">
+<arg>previous button worked</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:22.814879" elapsed="0.000032"/>
+</kw>
+<status status="NOT RUN" start="2026-01-12T08:44:22.814747" elapsed="0.000213"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>previous button didn't work</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:22.815107" elapsed="0.000028"/>
+</kw>
+<status status="NOT RUN" start="2026-01-12T08:44:22.815009" elapsed="0.000170"/>
+</branch>
+<status status="NOT RUN" start="2026-01-12T08:44:22.814687" elapsed="0.000532"/>
+</if>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:44:22.815600" elapsed="2.175565"/>
+</kw>
+<doc>previous button works</doc>
+<tag>slow</tag>
+<status status="FAIL" start="2026-01-12T08:44:08.472042" elapsed="16.519390">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t5" name="Verify Next Button Functionality" line="38">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:44:24.994160" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09C80050&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:44:24.993865" elapsed="0.000337"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:24.994343" elapsed="0.000147"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:24.994603" elapsed="0.000150"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:24.994864" elapsed="0.000136"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:24.995388" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:44:24.995138" elapsed="3.779470"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:44:28.774925" elapsed="0.033972"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:24.993621" elapsed="3.815424"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:24.993288" elapsed="3.815842"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:39.137243" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-384.png"&gt;&lt;img src="selenium-screenshot-384.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:44:39.137400" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:44:28.810127" elapsed="10.328510">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:39.138920" elapsed="0.000051"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:44:28.809628" elapsed="10.329504">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="loop until next button appears" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:44:39.139947" elapsed="0.000059"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${progress_text}</var>
+<arg>${QUIZ_PROGRESS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:39.140381" elapsed="0.000048"/>
+</kw>
+<kw name="Get current question number" owner="quiz_page">
+<var>${current_number}</var>
+<arg>${progress_text}</arg>
+<status status="NOT RUN" start="2026-01-12T08:44:39.140862" elapsed="0.000061"/>
+</kw>
+<kw name="Click Next button" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:44:39.141333" elapsed="0.000054"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<arg>5x</arg>
+<arg>1s</arg>
+<arg>Progress Number Should Increase By One</arg>
+<arg>${current_number}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:39.141798" elapsed="0.000109"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:44:39.142575" elapsed="2.277821"/>
+</kw>
+<doc>next button works</doc>
+<status status="FAIL" start="2026-01-12T08:44:24.992655" elapsed="16.428042">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t6" name="Verify Progress Through All Questions" line="48">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:44:41.423064" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09CA45F0&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:44:41.422785" elapsed="0.000314"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:41.423214" elapsed="0.000141"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:41.423461" elapsed="0.000132"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:41.423696" elapsed="0.000140"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:41.424180" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:44:41.423961" elapsed="4.418500"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:44:45.842775" elapsed="0.037543"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:41.422573" elapsed="4.457967"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:41.422308" elapsed="4.458331"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:56.131587" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-385.png"&gt;&lt;img src="selenium-screenshot-385.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:44:56.131743" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:44:45.881499" elapsed="10.251321">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:44:56.133041" elapsed="0.000050"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:44:45.881168" elapsed="10.252061">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="loop through quiz" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:44:56.133819" elapsed="0.000051"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:44:56.134312" elapsed="2.185714"/>
+</kw>
+<doc>all questions can be answered</doc>
+<tag>SMOKE</tag>
+<status status="FAIL" start="2026-01-12T08:44:41.421769" elapsed="16.898544">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t7" name="verify question counter displays" line="53">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:44:58.322737" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09D0D150&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:44:58.322485" elapsed="0.000285"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:58.322893" elapsed="0.000190"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:58.323228" elapsed="0.000140"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:44:58.323475" elapsed="0.000144"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:44:58.323993" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:44:58.323753" elapsed="4.301581"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:45:02.625568" elapsed="0.070043"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:58.322287" elapsed="4.373577"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:44:58.322016" elapsed="4.373977"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:45:12.959316" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-386.png"&gt;&lt;img src="selenium-screenshot-386.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:45:12.959459" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:45:02.697133" elapsed="10.267871">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:45:12.965214" elapsed="0.000045"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:45:02.696588" elapsed="10.268801">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${QUIZ_PROGRESS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-01-12T08:45:12.965787" elapsed="0.000046"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${QUIZ_PROGRESS}</arg>
+<arg>Question 1 of 13</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:45:12.966167" elapsed="0.000042"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:45:12.966659" elapsed="2.155996"/>
+</kw>
+<doc>the question counter displays number of questions</doc>
+<status status="FAIL" start="2026-01-12T08:44:58.321367" elapsed="16.801568">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t8" name="verify form can be filled" line="58">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:45:15.125873" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09B77790&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:45:15.125474" elapsed="0.000478"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:15.126147" elapsed="0.000286"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:15.126589" elapsed="0.000177"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:15.126909" elapsed="0.000171"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:45:15.127693" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:45:15.127401" elapsed="3.966786"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:45:19.094520" elapsed="0.034358"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:45:15.125096" elapsed="4.004018"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:45:15.124726" elapsed="4.004480"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:45:29.358056" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-387.png"&gt;&lt;img src="selenium-screenshot-387.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:45:29.358292" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:45:19.130392" elapsed="10.229510">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:45:29.360176" elapsed="0.000053"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:45:19.129911" elapsed="10.230465">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="loop through quiz" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:45:29.360936" elapsed="0.000042"/>
+</kw>
+<kw name="Fill the form" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:45:29.361320" elapsed="0.000038"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Alignment Blueprint</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:45:29.361701" elapsed="0.000048"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:45:29.362259" elapsed="2.165089"/>
+</kw>
+<tag>test</tag>
+<status status="FAIL" start="2026-01-12T08:45:15.124086" elapsed="16.403530">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t9" name="verify download button works" line="64">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:45:31.529814" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09B73950&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:45:31.529521" elapsed="0.000327"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:31.529959" elapsed="0.000141"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:31.530205" elapsed="0.000125"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:31.530430" elapsed="0.000123"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:45:31.530907" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:45:31.530677" elapsed="3.655924"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:45:35.187012" elapsed="0.031509"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:45:31.529294" elapsed="3.689399"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:45:31.528974" elapsed="3.689883"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:45:45.477327" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-388.png"&gt;&lt;img src="selenium-screenshot-388.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:45:45.477506" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:45:35.220312" elapsed="10.258437">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:45:45.478993" elapsed="0.000050"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:45:35.219574" elapsed="10.259604">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="loop through quiz" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:45:45.479740" elapsed="0.000057"/>
+</kw>
+<kw name="Fill the form" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:45:45.480141" elapsed="0.000056"/>
+</kw>
+<kw name="click download button" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:45:45.480519" elapsed="0.000046"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:45:45.480929" elapsed="2.158112"/>
+</kw>
+<tag>hero</tag>
+<status status="FAIL" start="2026-01-12T08:45:31.528470" elapsed="16.110868">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<test id="s1-t10" name="verify slider works" line="70">
+<kw name="Navigate to quiz page and maximize" owner="quiz_page" type="SETUP">
+<kw name="Navigate to quiz page" owner="quiz_page">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-01-12T08:45:47.641731" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC09CF8D50&gt;</msg>
+<var>${chrome_options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-01-12T08:45:47.641437" elapsed="0.000333"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:47.641900" elapsed="0.000154"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:47.642158" elapsed="0.000127"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-01-12T08:45:47.642463" elapsed="0.000133"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:45:47.642973" level="INFO">Opening browser 'CHROME' to base url 'https://trailquest.global/custom/quiz'.</msg>
+<arg>${QUIZ_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T08:45:47.642722" elapsed="3.853692"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-01-12T08:45:51.496857" elapsed="0.036005"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:45:47.641195" elapsed="3.892053"/>
+</kw>
+<status status="PASS" start="2026-01-12T08:45:47.640876" elapsed="3.892585"/>
+</kw>
+<kw name="Click Quiz Button" owner="quiz_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-12T08:46:01.871630" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-389.png"&gt;&lt;img src="selenium-screenshot-389.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-12T08:46:01.871755" level="FAIL">Element 'Begin The Quiz' not visible after 10 seconds.</msg>
+<arg>${QUIZ_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-12T08:45:51.535109" elapsed="10.337683">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${QUIZ_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-12T08:46:01.873162" elapsed="0.000062"/>
+</kw>
+<status status="FAIL" start="2026-01-12T08:45:51.534376" elapsed="10.339032">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</kw>
+<kw name="loop until slider appears" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:46:01.873934" elapsed="0.000052"/>
+</kw>
+<kw name="Use The Slider" owner="quiz_page">
+<status status="NOT RUN" start="2026-01-12T08:46:01.874315" elapsed="0.000038"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T08:46:01.874693" elapsed="2.148025"/>
+</kw>
+<tag>slider</tag>
+<status status="FAIL" start="2026-01-12T08:45:47.640336" elapsed="16.382703">Element 'Begin The Quiz' not visible after 10 seconds.</status>
+</test>
+<status status="FAIL" start="2026-01-12T08:43:29.494395" elapsed="154.529984"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="9" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">1</stat>
+<stat pass="0" fail="1" skip="0">hero</stat>
+<stat pass="0" fail="1" skip="0">regression</stat>
+<stat pass="0" fail="1" skip="0">slider</stat>
+<stat pass="0" fail="1" skip="0">slow</stat>
+<stat pass="0" fail="1" skip="0">SMOKE</stat>
+<stat pass="0" fail="1" skip="0">test</stat>
+</tag>
+<suite>
+<stat name="Quiz Test" id="s1" pass="1" fail="9" skip="0">Quiz Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
