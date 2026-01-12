@@ -37,7 +37,7 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output results tests/
+        xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output tests/
 
     - name: Upload Test Reports
       if: always()
