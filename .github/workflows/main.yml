@@ -28,8 +28,11 @@ jobs:
     - name: Uninstall webdriver-manager
       run: |
         pip uninstall -y webdriver-manager || true
-    
-    
+    - name: Remove preinstalled Chrome
+      run: |
+        sudo apt-get remove -y google-chrome-stable || true
+        sudo apt-get purge -y google-chrome-stable || true
+
     - name: Install Xvfb
       run: |
         sudo apt-get update
