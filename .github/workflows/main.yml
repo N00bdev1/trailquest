@@ -1,4 +1,4 @@
-ame: Robot Tests
+name: Robot Tests
 
 on:
   push:
