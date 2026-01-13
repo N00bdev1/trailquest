@@ -23,9 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Robot tests
-      run: |
-        robot -d output tests/
+ 
     - name: Check Chrome and ChromeDriver Versions
       run: |
         echo "Checking Chrome version..."
@@ -41,7 +39,9 @@ jobs:
         else
           echo "chromedriver not found"
         fi
-
+    - name: Run Robot tests
+      run: |
+         robot -d output tests/
     - name: Upload Robot Reports
       uses: actions/upload-artifact@v4
       with:
