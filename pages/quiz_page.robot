@@ -7,13 +7,12 @@ ${QUIZ_URL}    ${BASE_URL}/custom/quiz
 ${QUIZ_BUTTON}    //button[normalize-space()='Begin The Quiz']
 *** Keywords ***
 Navigate to quiz page
- #   ${chrome_options}=    Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
-#    Call Method    ${chrome_options}    add_argument    --headless
-#    Call Method    ${chrome_options}    add_argument    --no-sandbox
-#   Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+ 
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
 
-    Open Browser    ${QUIZ_URL}    ${BROWSER}    #options=${chrome_options}
+    ${driver_path}=    Evaluate    sys.modules['webdriver_manager'].chrome.ChromeDriverManager().install()    sys, webdriver_manager
 
+    Open Browser    ${QUIZ_URL}    ${BROWSER}    executable_path=${driver_path}    options=${chrome_options}
 
     Maximize Browser Window
 Navigate to quiz page and maximize
