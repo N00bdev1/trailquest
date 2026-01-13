@@ -21,6 +21,8 @@ jobs:
           sudo apt-get install -y \
             python3-pip \
             xvfb \
+            chromium-browser \
+            chromium-chromedriver \
             unzip \
             fonts-liberation \
             libnss3 \
@@ -28,23 +30,10 @@ jobs:
             libatk1.0-0 \
             libatk-bridge2.0-0 \
             libx11-xcb1 \
-            libasound2t64 \
-            wget \
-            apt-transport-https \
-            ca-certificates \
-            gnupg
+            libasound2t64
 
-          # Install Google Chrome
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-key.gpg
-          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-key.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-          # Install ChromeDriver (matches Chrome version)
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-          wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
-          unzip /tmp/chromedriver.zip -d /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+          # Symlink chromium to google-chrome so Selenium can find it
+          sudo ln -sf /usr/bin/chromium-browser /usr/bin/google-chrome
 
           # Install Python packages
           pip install --upgrade pip
