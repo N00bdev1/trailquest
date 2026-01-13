@@ -1,4 +1,4 @@
-name: Robot Tests
+name: Robot Tests Windows
 
 on:
   push:
