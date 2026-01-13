@@ -10,7 +10,7 @@ Navigate to quiz page
  
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
 
-    ${driver_path}=    Evaluate    sys.modules['webdriver_manager'].chrome.ChromeDriverManager().install()    sys, webdriver_manager
+    ${driver_path}=    Evaluate    sys.modules['webdriver_manager'].chrome.ChromeDriverManager().install()    sys, webdriver_manager.chrome
 
     Open Browser    ${QUIZ_URL}    ${BROWSER}    executable_path=${driver_path}    options=${chrome_options}
 
