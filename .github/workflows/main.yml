@@ -1,49 +1,27 @@
-name: Robot Framework CI
+name: Robot Tests
 
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
-
 jobs:
-  test:
+  robot-tests:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip xvfb chromium-browser chromium-chromedriver unzip fonts-liberation libnss3 libxss1 libasound2 libatk1.0-0 libatk-bridge2.0-0 libx11-xcb1
+          pip install --upgrade pip
+          pip install robotframework selenium robotframework-seleniumlibrary
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
+      # Run Robot tests inside Xvfb
+      - name: Run Robot Tests
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output tests/quiz_test.robot
  
-    - name: Check Chrome and ChromeDriver Versions
-      run: |
-        echo "Checking Chrome version..."
-        if command -v google-chrome &> /dev/null; then
-          google-chrome --version
-        else
-          echo "google-chrome not found"
-        fi
-
-        echo "Checking ChromeDriver version..."
-        if command -v chromedriver &> /dev/null; then
-          chromedriver --version
-        else
-          echo "chromedriver not found"
-        fi
-    - name: Run Robot tests
-      run: |
-         robot -d output tests/
-    - name: Upload Robot Reports
-      uses: actions/upload-artifact@v4
-      with:
-        name: robot-report
-        path: output/
