@@ -4,7 +4,7 @@ Resource    ../resources/common.robot
 Resource    ../resources/locators/quiz_locators.robot
 *** Variables ***
 ${QUIZ_URL}    ${BASE_URL}/custom/quiz
-${QUIZ_BUTTON}    Begin The Quiz
+${QUIZ_BUTTON}    //button[normalize-space()='Begin The Quiz']
 *** Keywords ***
 Navigate to quiz page
  #   ${chrome_options}=    Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
