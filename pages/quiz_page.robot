@@ -7,13 +7,7 @@ ${QUIZ_URL}    ${BASE_URL}/custom/quiz
 ${QUIZ_BUTTON}    //button[normalize-space()='Begin The Quiz']
 *** Keywords ***
 Navigate to quiz page
- 
-    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-
-    ${driver_path}=    Evaluate    sys.modules['webdriver_manager'].chrome.ChromeDriverManager().install()    sys, webdriver_manager.chrome
-
-    Open Browser    ${QUIZ_URL}    ${BROWSER}    executable_path=${driver_path}    options=${chrome_options}
-
+    Open Browser    ${QUIZ_URL}    chrome    
     Maximize Browser Window
 Navigate to quiz page and maximize
     Navigate To Quiz Page
