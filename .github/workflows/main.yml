@@ -52,7 +52,13 @@ jobs:
           echo "ChromeDriver version (webdriver-manager will install):"
           python3 -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
 
-      # Step 4: Run Robot tests inside Xvfb (headless)
+      
       - name: Run Robot Tests
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" robot -d output tests/
+      - name: Upload Robot Framework results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-test-results
+          path: output/
