@@ -7,11 +7,26 @@ ${QUIZ_URL}    ${BASE_URL}/custom/quiz
 ${QUIZ_BUTTON}    //button[normalize-space()='Begin The Quiz']
 *** Keywords ***
 Navigate to quiz page
-    Open Browser    ${QUIZ_URL}    chrome
-    Set Selenium Implicit Wait    20s
+    ${chrome_options}=    Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
+    ${args}=    Create List
+    ...    --window-size=1920,1080
+    ...    --start-maximized
+    ...    --no-sandbox
+    ...    --disable-dev-shm-usage
+    ...    --disable-gpu
+    ...    --disable-software-rasterizer
+    ...    --remote-debugging-port=9222
+    ...    --disable-extensions
+    ...    --disable-setuid-sandbox
+    FOR    ${arg}    IN    @{args}
+        Call Method    ${chrome_options}    add_argument    ${arg}
+    END
+    Open Browser    ${QUIZ_URL}    ${BROWSER}    options=${chrome_options}
+
+
 Navigate to quiz page and maximize
     Navigate To Quiz Page
-    Maximize Browser Window
+
 Click Quiz Button
     Wait Until Element Is Visible    ${QUIZ_BUTTON}    timeout=10s    
     Click Button    ${QUIZ_BUTTON}
