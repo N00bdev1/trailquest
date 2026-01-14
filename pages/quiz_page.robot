@@ -7,11 +7,11 @@ ${QUIZ_URL}    ${BASE_URL}/custom/quiz
 ${QUIZ_BUTTON}    //button[normalize-space()='Begin The Quiz']
 *** Keywords ***
 Navigate to quiz page
-    Open Browser    ${QUIZ_URL}    chrome    
-    Maximize Browser Window
+    Open Browser    ${QUIZ_URL}    chrome
+    Set Selenium Implicit Wait    20s
 Navigate to quiz page and maximize
     Navigate To Quiz Page
-    #Maximize Browser Window
+    Maximize Browser Window
 Click Quiz Button
     Wait Until Element Is Visible    ${QUIZ_BUTTON}    timeout=10s    
     Click Button    ${QUIZ_BUTTON}
