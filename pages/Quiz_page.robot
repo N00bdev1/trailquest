@@ -4,7 +4,8 @@ Resource    ../resources/common.robot
 Resource    ../resources/locators/quiz_locators.robot
 *** Variables ***
 ${QUIZ_URL}    ${BASE_URL}/custom/quiz
-${QUIZ_BUTTON}    //button[normalize-space()='Begin The Quiz']
+${QUIZ_BUTTON}    //button[contains(@class,'quiz-btn') and contains(@class,'previous') and @onclick='startQuiz()']
+
 *** Keywords ***
 Navigate to quiz page
     ${chrome_options}=    Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium.webdriver
@@ -22,20 +23,13 @@ Navigate to quiz page
         Call Method    ${chrome_options}    add_argument    ${arg}
     END
     Open Browser    ${QUIZ_URL}    ${BROWSER}    options=${chrome_options}
-
-
-Navigate to quiz page and maximize
-    Navigate To Quiz Page
-
 Click Quiz Button
     Wait Until Element Is Visible    ${QUIZ_BUTTON}    timeout=10s    
     Click Button    ${QUIZ_BUTTON}
-
 Choose Option
     Wait Until Element Is Visible    ${OPTION_LABELS}    timeout=10s
     ${options}=    Get WebElements   ${OPTION_LABELS}
     Click Element  ${options}[0]
-
 Use The Slider
     Wait Until Element Is Visible    css=#rangeInput    timeout=10s
     ${slider_el}=    Get WebElement    css=#rangeInput
