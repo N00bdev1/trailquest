@@ -1,7 +1,7 @@
 *** Settings ***
-Resource    ../pages/quiz_page.robot
+Resource    ../pages/Quiz_page.robot
 Resource    ../resources/locators/quiz_locators.robot
-Test Setup    Navigate To Quiz Page And Maximize
+Test Setup    Navigate To Quiz Page
 Test Teardown    Close Browser
 *** Test Cases ***
 verify quiz page loads
